@@ -2,6 +2,7 @@
   "name": "tpfinal_discreta",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://lucianoar.github.io/tpfinal_mat_discreta/",
   "dependencies": {
     "material-ui": "^0.19.4",
     "react": "^16.0.0",
