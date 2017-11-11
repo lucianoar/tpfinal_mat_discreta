@@ -44,6 +44,7 @@ class App extends Component {
               <div className="content">
                 {this.routes.map(r => (
                   <Route
+                    exact
                     key={r.name}
                     path={`${r.path}`}
                     render={() => <ExerciseTemplate exercise={r} />}

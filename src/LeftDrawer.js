@@ -15,14 +15,26 @@ const LeftDrawer = props => (
       <NavigationClose />
     </div>
     <Menu onItemTouchTap={props.toggle}>
+      {props.routes
+        .filter(r => r.name === 'home')
+        .map(r => (
+          <MenuItem
+            linkButton
+            containerElement={<Link to={r.path} />}
+            primaryText={r.title}
+          />
+        ))}
+      <Divider />
       <Subheader>Ejercicios</Subheader>
-      {props.routes.map(r => (
-        <MenuItem
-          linkButton
-          containerElement={<Link to={r.path} />}
-          primaryText={r.title}
-        />
-      ))}
+      {props.routes
+        .filter(r => r.exercise)
+        .map(r => (
+          <MenuItem
+            linkButton
+            containerElement={<Link to={r.path} />}
+            primaryText={r.title}
+          />
+        ))}
       <Divider />
     </Menu>
   </Drawer>
