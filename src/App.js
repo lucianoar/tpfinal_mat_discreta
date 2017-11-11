@@ -3,6 +3,8 @@ import {HashRouter as Router, Route} from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import LeftDrawer from './LeftDrawer.js';
+
+import Routes from './Routes.js';
 import ExerciseTemplate from './Components/ExerciseTemplate.js';
 
 import './App.css';
@@ -13,11 +15,7 @@ class App extends Component {
     this.state = {
       drawerOpen: false,
     };
-    this.routes = [
-      {path: '/criba', name: 'criba', title: 'Criba de Eratóstenes'},
-      {path: '/mcd', name: 'mcd', title: 'Mínimo común divisor'},
-      {path: '/cambio_base', name: 'cambio_base', title: 'Cambio de base'},
-    ];
+    this.routes = Routes;
     this.toggleDrawer = () => {
       this.setState(prevState => {
         return {drawerOpen: !prevState.drawerOpen};
