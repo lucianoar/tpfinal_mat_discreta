@@ -14,6 +14,7 @@ const Routes = [
     path: '/criba',
     name: 'criba',
     title: 'Criba de Eratóstenes',
+    subtitle: 'Busqueda de números primos',
     component: Criba,
     exercise: true,
     snippet: true,
