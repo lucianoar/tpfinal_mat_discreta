@@ -5,6 +5,7 @@ import AppBar from 'material-ui/AppBar';
 import LeftDrawer from './LeftDrawer.js';
 
 import Routes from './Routes.js';
+import Home from './Components/Home.js';
 import ExerciseTemplate from './Components/ExerciseTemplate.js';
 
 import './App.css';
@@ -42,14 +43,17 @@ class App extends Component {
                 />
               </header>
               <div className="content">
-                {this.routes.map(r => (
-                  <Route
-                    exact
-                    key={r.name}
-                    path={`${r.path}`}
-                    render={() => <ExerciseTemplate exercise={r} />}
-                  />
-                ))}
+                <Route exact key="home" path="/" component={Home} />
+                {this.routes
+                  .filter(r => r.exercise)
+                  .map(r => (
+                    <Route
+                      exact
+                      key={r.name}
+                      path={`${r.path}`}
+                      render={() => <ExerciseTemplate exercise={r} />}
+                    />
+                  ))}
               </div>
             </div>
           </Router>
