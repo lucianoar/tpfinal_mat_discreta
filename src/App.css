@@ -16,3 +16,25 @@
   min-height: 500px;
   overflow-y: scroll;
 }
+
+.container-criba {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-criba .item-criba {
+  flex: 0 0;
+  min-width: 30px;
+  margin: 2px;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  border: 10px solid transparent;
+  line-height: 2;
+}
+
+.container-criba .item-criba.compound {
+  background: #00bcd4;
+  font-weight: bold;
+  color: white;
+}
