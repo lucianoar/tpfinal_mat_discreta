@@ -1,5 +1,5 @@
 import Home from './Components/Home.js';
-import Criba from './Components/CribaEratostenes.js';
+import CribaEratostenes from './Components/CribaEratostenes/ControllerCriba.js';
 import MCD from './Components/MCD.js';
 import CambioBase from './Components/CambioBase.js';
 const Routes = [
@@ -15,7 +15,7 @@ const Routes = [
     name: 'criba',
     title: 'Criba de Eratóstenes',
     subtitle: 'Busqueda de números primos',
-    component: Criba,
+    component: CribaEratostenes,
     exercise: true,
     snippet: true,
   },

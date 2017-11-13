@@ -1,0 +1,307 @@
+.container-criba {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container-criba .item-criba {
+  flex: 0 0;
+  min-width: 30px;
+  margin: 2px;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  border: 5px solid transparent;
+  padding: 5px;
+  line-height: 2;
+  transition: opacity 200ms ease-in-out;
+}
+.container-criba .item-criba.compound {
+  font-weight: bold;
+}
+.current-m {
+  border-color: black !important;
+}
+.divisor-2 {
+  background-color: #ff9800;
+}
+.prime-2 {
+  border-color: #ff9800 !important;
+}
+.prime-2:hover {
+  opacity: 1 !important;
+}
+.prime-2:hover ~ .divisor-2 {
+  opacity: 1 !important;
+}
+.prime-2:hover ~ .item-criba:not(.divisor-2) {
+  opacity: 0.3 !important;
+}
+.divisor-3 {
+  background-color: #2196f3;
+}
+.prime-3 {
+  border-color: #2196f3 !important;
+}
+.prime-3:hover {
+  opacity: 1 !important;
+}
+.prime-3:hover ~ .divisor-3 {
+  opacity: 1 !important;
+}
+.prime-3:hover ~ .item-criba:not(.divisor-3) {
+  opacity: 0.3 !important;
+}
+.divisor-5 {
+  background-color: #f44336;
+}
+.prime-5 {
+  border-color: #f44336 !important;
+}
+.prime-5:hover {
+  opacity: 1 !important;
+}
+.prime-5:hover ~ .divisor-5 {
+  opacity: 1 !important;
+}
+.prime-5:hover ~ .item-criba:not(.divisor-5) {
+  opacity: 0.3 !important;
+}
+.divisor-7 {
+  background-color: #4caf50;
+}
+.prime-7 {
+  border-color: #4caf50 !important;
+}
+.prime-7:hover {
+  opacity: 1 !important;
+}
+.prime-7:hover ~ .divisor-7 {
+  opacity: 1 !important;
+}
+.prime-7:hover ~ .item-criba:not(.divisor-7) {
+  opacity: 0.3 !important;
+}
+.divisor-11 {
+  background-color: #9c27b0;
+}
+.prime-11 {
+  border-color: #9c27b0 !important;
+}
+.prime-11:hover {
+  opacity: 1 !important;
+}
+.prime-11:hover ~ .divisor-11 {
+  opacity: 1 !important;
+}
+.prime-11:hover ~ .item-criba:not(.divisor-11) {
+  opacity: 0.3 !important;
+}
+.divisor-13 {
+  background-color: #e91e63;
+}
+.prime-13 {
+  border-color: #e91e63 !important;
+}
+.prime-13:hover {
+  opacity: 1 !important;
+}
+.prime-13:hover ~ .divisor-13 {
+  opacity: 1 !important;
+}
+.prime-13:hover ~ .item-criba:not(.divisor-13) {
+  opacity: 0.3 !important;
+}
+.divisor-17 {
+  background-color: #009688;
+}
+.prime-17 {
+  border-color: #009688 !important;
+}
+.prime-17:hover {
+  opacity: 1 !important;
+}
+.prime-17:hover ~ .divisor-17 {
+  opacity: 1 !important;
+}
+.prime-17:hover ~ .item-criba:not(.divisor-17) {
+  opacity: 0.3 !important;
+}
+.divisor-19 {
+  background-color: #3f51b5;
+}
+.prime-19 {
+  border-color: #3f51b5 !important;
+}
+.prime-19:hover {
+  opacity: 1 !important;
+}
+.prime-19:hover ~ .divisor-19 {
+  opacity: 1 !important;
+}
+.prime-19:hover ~ .item-criba:not(.divisor-19) {
+  opacity: 0.3 !important;
+}
+.divisor-23 {
+  background-color: #8bc34a;
+}
+.prime-23 {
+  border-color: #8bc34a !important;
+}
+.prime-23:hover {
+  opacity: 1 !important;
+}
+.prime-23:hover ~ .divisor-23 {
+  opacity: 1 !important;
+}
+.prime-23:hover ~ .item-criba:not(.divisor-23) {
+  opacity: 0.3 !important;
+}
+.divisor-29 {
+  background-color: #673ab7;
+}
+.prime-29 {
+  border-color: #673ab7 !important;
+}
+.prime-29:hover {
+  opacity: 1 !important;
+}
+.prime-29:hover ~ .divisor-29 {
+  opacity: 1 !important;
+}
+.prime-29:hover ~ .item-criba:not(.divisor-29) {
+  opacity: 0.3 !important;
+}
+.divisor-31 {
+  background-color: #cddc39;
+}
+.prime-31 {
+  border-color: #cddc39 !important;
+}
+.prime-31:hover {
+  opacity: 1 !important;
+}
+.prime-31:hover ~ .divisor-31 {
+  opacity: 1 !important;
+}
+.prime-31:hover ~ .item-criba:not(.divisor-31) {
+  opacity: 0.3 !important;
+}
+.divisor-37 {
+  background-color: #ffeb3b;
+}
+.prime-37 {
+  border-color: #ffeb3b !important;
+}
+.prime-37:hover {
+  opacity: 1 !important;
+}
+.prime-37:hover ~ .divisor-37 {
+  opacity: 1 !important;
+}
+.prime-37:hover ~ .item-criba:not(.divisor-37) {
+  opacity: 0.3 !important;
+}
+.divisor-41 {
+  background-color: #ffc107;
+}
+.prime-41 {
+  border-color: #ffc107 !important;
+}
+.prime-41:hover {
+  opacity: 1 !important;
+}
+.prime-41:hover ~ .divisor-41 {
+  opacity: 1 !important;
+}
+.prime-41:hover ~ .item-criba:not(.divisor-41) {
+  opacity: 0.3 !important;
+}
+.divisor-43 {
+  background-color: #00bcd4;
+}
+.prime-43 {
+  border-color: #00bcd4 !important;
+}
+.prime-43:hover {
+  opacity: 1 !important;
+}
+.prime-43:hover ~ .divisor-43 {
+  opacity: 1 !important;
+}
+.prime-43:hover ~ .item-criba:not(.divisor-43) {
+  opacity: 0.3 !important;
+}
+.divisor-47 {
+  background-color: #ff5722;
+}
+.prime-47 {
+  border-color: #ff5722 !important;
+}
+.prime-47:hover {
+  opacity: 1 !important;
+}
+.prime-47:hover ~ .divisor-47 {
+  opacity: 1 !important;
+}
+.prime-47:hover ~ .item-criba:not(.divisor-47) {
+  opacity: 0.3 !important;
+}
+.divisor-53 {
+  background-color: #795548;
+}
+.prime-53 {
+  border-color: #795548 !important;
+}
+.prime-53:hover {
+  opacity: 1 !important;
+}
+.prime-53:hover ~ .divisor-53 {
+  opacity: 1 !important;
+}
+.prime-53:hover ~ .item-criba:not(.divisor-53) {
+  opacity: 0.3 !important;
+}
+.divisor-59 {
+  background-color: #607d8b;
+}
+.prime-59 {
+  border-color: #607d8b !important;
+}
+.prime-59:hover {
+  opacity: 1 !important;
+}
+.prime-59:hover ~ .divisor-59 {
+  opacity: 1 !important;
+}
+.prime-59:hover ~ .item-criba:not(.divisor-59) {
+  opacity: 0.3 !important;
+}
+.divisor-61 {
+  background-color: #9e9e9e;
+}
+.prime-61 {
+  border-color: #9e9e9e !important;
+}
+.prime-61:hover {
+  opacity: 1 !important;
+}
+.prime-61:hover ~ .divisor-61 {
+  opacity: 1 !important;
+}
+.prime-61:hover ~ .item-criba:not(.divisor-61) {
+  opacity: 0.3 !important;
+}
+.divisor-67 {
+  background-color: #03a9f4;
+}
+.prime-67 {
+  border-color: #03a9f4 !important;
+}
+.prime-67:hover {
+  opacity: 1 !important;
+}
+.prime-67:hover ~ .divisor-67 {
+  opacity: 1 !important;
+}
+.prime-67:hover ~ .item-criba:not(.divisor-67) {
+  opacity: 0.3 !important;
+}
