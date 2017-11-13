@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
 import Divider from 'material-ui/Divider';
-import {Card, CardHeader, CardText, CardActions} from 'material-ui/Card';
+import {Card, CardText} from 'material-ui/Card';
 
 class FormCriba extends Component {
   constructor() {
@@ -17,9 +16,10 @@ class FormCriba extends Component {
       criba: [],
       m1: 2,
       m2: 2,
+      answer: '',
     };
 
-    this.delay = 200;
+    this.delay = 0;
 
     this.changeNumber = ev => {
       const value = parseInt(ev.target.value, 10);
@@ -65,23 +65,41 @@ class FormCriba extends Component {
           raiz: Math.floor(Math.sqrt(number)),
           criba: this.initCriba(number),
           running: true,
+          answer: '',
         },
         this.tick,
       );
     };
 
+    this.cancel = () => {
+      this.setState({
+        running: false,
+        m1: 2,
+        m2: 2,
+      });
+    };
+
     this.tick = () => {
-      const {m1, m2, number, raiz} = this.state;
-      if (m1 > raiz) {
+      const {m1, m2, number, raiz, running, criba} = this.state;
+      if (!running || m1 > raiz) {
+        let answer = '';
+        if (running) {
+          const n = criba[number].compound ? ' no ' : '';
+          answer = `El numero ${number}${n} es primo`;
+        }
         this.setState({
           running: false,
+          answer: answer,
         });
         return;
       }
       if (m2 > number / m1) {
         this.setState(
           state => {
-            state.m1 = state.m1 + 1;
+            const nextPrime = state.criba.filter(
+              c => !c.compound && c.value > state.m1,
+            )[0].value;
+            state.m1 = nextPrime;
             state.m2 = state.m1;
             return state;
           },
@@ -106,7 +124,14 @@ class FormCriba extends Component {
   }
 
   render() {
-    const {number = null, errorText, firstRun, criba, running} = this.state;
+    const {
+      number = null,
+      errorText,
+      firstRun,
+      criba,
+      running,
+      answer,
+    } = this.state;
     return (
       <div>
         <form>
@@ -114,6 +139,7 @@ class FormCriba extends Component {
             floatingLabelText="Ingrese un número:"
             value={number}
             errorText={errorText}
+            disabled={running}
             onChange={this.changeNumber}
           />
           <br />
@@ -123,10 +149,28 @@ class FormCriba extends Component {
             disabled={!number || running}
             onClick={this.start}
           />
+          {running && (
+            <span>
+              <span> </span>
+              <RaisedButton
+                label="Cancelar"
+                primary={true}
+                onClick={this.cancel}
+              />
+            </span>
+          )}
         </form>
         <br />
         <Divider />
-        {firstRun && <Criba criba={criba} />}
+        {answer !== '' && (
+          <div>
+            <p>
+              <b>Resultado: </b> {answer}
+            </p>
+            <Divider />
+          </div>
+        )}
+        {firstRun && <Criba criba={criba} running={running} />}
       </div>
     );
   }
@@ -134,15 +178,21 @@ class FormCriba extends Component {
 
 const Criba = props => (
   <Card zDepth={0}>
-    <CardHeader title="Resultado" />
     <CardText>
-      {props.criba
-        .filter(c => !c.compound)
-        .map(c => <div key={c.value}>{JSON.stringify(c)}</div>)}
+      <div className="container-criba">
+        {props.criba.map(c => {
+          let className = 'item-criba ';
+          if (c.compound) {
+            className += 'compound ';
+          }
+          return (
+            <span key={c.value} className={className}>
+              {c.value}
+            </span>
+          );
+        })}
+      </div>
     </CardText>
-    <CardActions style={{textAlign: 'right'}}>
-      <FlatButton label="Cancelar" />
-    </CardActions>
   </Card>
 );
 
