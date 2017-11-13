@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Divider from 'material-ui/Divider';
-import {Card, CardText} from 'material-ui/Card';
+import Criba from './Criba.js';
 
-class FormCriba extends Component {
+class ControllerCriba extends Component {
   constructor() {
     super();
     this.state = {
@@ -39,24 +39,20 @@ class FormCriba extends Component {
     };
 
     this.initCriba = number => {
-      const criba = [];
+      const criba = [{}];
       for (let i = 2; i <= number; i++) {
         criba[i] = {
           value: i,
           compound: false,
+          prime: false,
         };
       }
       return criba;
     };
 
-    this.markNumber = (number, prevState) => {
-      prevState.criba[number].compound = true;
-      return prevState;
-    };
-
     this.start = () => {
       const {number} = this.state;
-      if (!number) return;
+      if (!number || number < 2) return;
       this.setState(
         {
           m1: 2,
@@ -84,34 +80,40 @@ class FormCriba extends Component {
       if (!running || m1 > raiz) {
         let answer = '';
         if (running) {
-          const n = criba[number].compound ? ' no ' : '';
-          answer = `El numero ${number}${n} es primo`;
+          answer = `El numero ${number}${
+            criba[number].compound ? ' no ' : ''
+          } es primo`;
         }
         this.setState({
           running: false,
           answer: answer,
         });
         return;
-      }
-      if (m2 > number / m1) {
+      } else if (m2 > number / m1) {
         this.setState(
           state => {
-            const nextPrime = state.criba.filter(
+            state.m1 = state.criba.filter(
               c => !c.compound && c.value > state.m1,
             )[0].value;
-            state.m1 = nextPrime;
             state.m2 = state.m1;
+            state.criba[m1].prime = true;
             return state;
           },
           () => {
             window.setTimeout(this.tick, this.delay);
           },
         );
+      } else if (criba[m1 * m2].compound) {
+        this.setState(state => {
+          state.m2++;
+          return state;
+        }, this.tick);
       } else {
         this.setState(
           state => {
             const {m1, m2} = state;
             state.criba[m1 * m2].compound = true;
+            state.criba[m1 * m2].divisor = m1;
             state.m2 = m2 + 1;
             return state;
           },
@@ -131,16 +133,22 @@ class FormCriba extends Component {
       criba,
       running,
       answer,
+      m1,
     } = this.state;
     return (
       <div>
-        <form>
+        <form action="">
           <TextField
             floatingLabelText="Ingrese un número:"
             value={number}
             errorText={errorText}
             disabled={running}
             onChange={this.changeNumber}
+            onKeyPress={ev => {
+              if (ev.key === 'Enter') {
+                this.start();
+              }
+            }}
           />
           <br />
           <RaisedButton
@@ -170,30 +178,10 @@ class FormCriba extends Component {
             <Divider />
           </div>
         )}
-        {firstRun && <Criba criba={criba} running={running} />}
+        {firstRun && <Criba criba={criba} running={running} current={m1} />}
       </div>
     );
   }
 }
 
-const Criba = props => (
-  <Card zDepth={0}>
-    <CardText>
-      <div className="container-criba">
-        {props.criba.map(c => {
-          let className = 'item-criba ';
-          if (c.compound) {
-            className += 'compound ';
-          }
-          return (
-            <span key={c.value} className={className}>
-              {c.value}
-            </span>
-          );
-        })}
-      </div>
-    </CardText>
-  </Card>
-);
-
-export default FormCriba;
+export default ControllerCriba;

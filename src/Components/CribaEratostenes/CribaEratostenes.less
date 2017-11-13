@@ -1,0 +1,58 @@
+.container-criba {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-criba .item-criba {
+  flex: 0 0;
+  min-width: 30px;
+  margin: 2px;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  border: 5px solid transparent;
+  padding: 5px;
+  line-height: 2;
+  transition: opacity 200ms ease-in-out;
+}
+
+.container-criba .item-criba.compound {
+  font-weight: bold;
+}
+.current-m {
+  border-color: black !important;
+}
+
+@numbers: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67;
+@backgrounds: #ff9800, #2196f3, #f44336, #4caf50, #9c27b0, #e91e63, #009688,
+  #3f51b5, #8bc34a, #673ab7, #cddc39, #ffeb3b, #ffc107, #00bcd4, #ff5722,
+  #795548, #607d8b, #9e9e9e, #03a9f4;
+@colors: rgb(0, 0, 0), rgb(255, 255, 255), rgb(255, 255, 255), rgb(0, 0, 0),
+  rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255),
+  rgb(0, 0, 0), rgb(255, 255, 255), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0),
+  rgb(0, 0, 0), rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255),
+  rgb(0, 0, 0), rgb(0, 0, 0);
+
+.make-primes-classes(@i: length(@numbers)) when (@i > 0) {
+  .make-primes-classes(@i - 1);
+  @back: extract(@backgrounds, @i);
+  @color: extract(@colors, @i);
+  @number: extract(@numbers, @i);
+  .divisor-@{number} {
+    background-color: @back;
+  }
+  .prime-@{number} {
+    border-color: (@back) !important;
+    &:hover {
+      opacity: 1 !important;
+    }
+    &:hover ~ .divisor-@{number} {
+      opacity: 1 !important;
+    }
+    &:hover ~ .item-criba:not(.divisor-@{number}) {
+      opacity: 0.3 !important;
+    }
+  }
+}
+
+.make-primes-classes(); // launch the loop
