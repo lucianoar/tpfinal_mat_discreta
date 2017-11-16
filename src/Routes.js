@@ -2,6 +2,7 @@ import Home from './Components/Home.js';
 import CribaEratostenes from './Components/CribaEratostenes/ControllerCriba.js';
 import MCD from './Components/MCD.js';
 import CambioBase from './Components/CambioBase.js';
+import Conteo from './Components/Conteo/Conteo.js';
 const Routes = [
   {
     path: '/',
@@ -31,6 +32,14 @@ const Routes = [
     name: 'cambio_base',
     title: 'Cambio de base',
     component: CambioBase,
+    exercise: true,
+  },
+  {
+    path: '/conteo',
+    name: 'conteo',
+    title: 'Conteo',
+    subtitle: 'Permutaciones, combinaciones, variaciones',
+    component: Conteo,
     exercise: true,
   },
 ];
