@@ -3,6 +3,7 @@ import CribaEratostenes from './Components/CribaEratostenes/ControllerCriba.js';
 import MCD from './Components/MCD.js';
 import CambioBase from './Components/CambioBase.js';
 import Conteo from './Components/Conteo/Conteo.js';
+import SumaBinario from './Components/SumaBinario/SumaBinario.js';
 const Routes = [
   {
     path: '/',
@@ -25,6 +26,14 @@ const Routes = [
     name: 'mcd',
     title: 'Mínimo común divisor',
     component: MCD,
+    exercise: true,
+  },
+  {
+    path: '/suma_binario',
+    name: 'suma_binario',
+    title: 'Suma binaria',
+    subtitle: 'Suma de 2 números binarios',
+    component: SumaBinario,
     exercise: true,
   },
   {
