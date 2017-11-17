@@ -1,6 +1,6 @@
 import Home from './Components/Home.js';
 import CribaEratostenes from './Components/CribaEratostenes/ControllerCriba.js';
-import MCD from './Components/MCD.js';
+import MCD from './Components/MCD/MCD.js';
 import CambioBase from './Components/CambioBase/CambioBase.js';
 import Conteo from './Components/Conteo/Conteo.js';
 import SumaBinario from './Components/SumaBinario/SumaBinario.js';
@@ -24,7 +24,9 @@ const Routes = [
   {
     path: '/mcd',
     name: 'mcd',
-    title: 'Mínimo común divisor',
+    title: 'Máximo común divisor',
+    subtitle:
+      'Busqueda del máximo divisor de 2 números usando el algoritmo de Euclides',
     component: MCD,
     exercise: true,
   },
