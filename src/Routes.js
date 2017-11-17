@@ -29,6 +29,7 @@ const Routes = [
       'Busqueda del máximo divisor de 2 números usando el algoritmo de Euclides',
     component: MCD,
     exercise: true,
+    snippet: true,
   },
   {
     path: '/suma_binario',
@@ -37,6 +38,7 @@ const Routes = [
     subtitle: 'Suma de 2 números binarios',
     component: SumaBinario,
     exercise: true,
+    snippet: true,
   },
   {
     path: '/cambio_base',
@@ -45,6 +47,7 @@ const Routes = [
     subtitle: 'Decimal → Octal y hexadecimal',
     component: CambioBase,
     exercise: true,
+    snippet: true,
   },
   {
     path: '/conteo',
