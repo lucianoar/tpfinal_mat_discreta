@@ -28,7 +28,7 @@ const FlexContainer = props => (
 );
 
 const FlexItem = props => (
-  <div style={{flex: '1 1', textAlign: 'center'}}>{props.children}</div>
+  <div style={{flex: '1 1', textAlign: 'left'}}>{props.children}</div>
 );
 
 const NumberInBase = props => {

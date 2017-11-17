@@ -22,3 +22,18 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
+
+.home-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 4rem;
+  justify-content: center;
+}
+
+.home-item {
+  flex: 1 2;
+  min-width: 400px;
+  height: 200px;
+  padding: 1rem;
+  box-sizing: border-box;
+}

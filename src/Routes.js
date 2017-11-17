@@ -42,6 +42,7 @@ const Routes = [
     path: '/cambio_base',
     name: 'cambio_base',
     title: 'Cambio de base',
+    subtitle: 'Decimal → Octal y hexadecimal',
     component: CambioBase,
     exercise: true,
   },
